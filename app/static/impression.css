@@ -1,0 +1,30 @@
+@media print {
+  .index,
+  .controls,
+  form,
+  #actions,
+  .statusbar {
+    display: none !important;
+  }
+  .station {
+    display: block;
+  }
+  body,
+  .topbar,
+  .panel {
+    background: white;
+  }
+  .topbar {
+    position: static;
+  }
+  .panel {
+    break-inside: avoid;
+  }
+  .ledger {
+    max-height: none;
+  }
+  .mix,
+  .quality-seal {
+    print-color-adjust: exact;
+  }
+}

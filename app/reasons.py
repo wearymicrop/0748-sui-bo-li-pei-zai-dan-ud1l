@@ -1,0 +1,18 @@
+LABELS = {
+    "BAD_TICKET": "磅单字段或重量无效",
+    "NEGATIVE_NET": "毛重须大于皮重",
+    "DUPLICATE_TICKET": "重复回传已归并",
+    "TICKET_CONFLICT": "同磅单号的重量或批号冲突",
+    "BAD_MOISTURE": "含水样位置、样重或单位无效",
+    "MOISTURE_CONFLICT": "同一含水样编号冲突",
+    "DUPLICATE_MOISTURE": "相同含水样已归并",
+    "MISSING_MOISTURE": "缺少有代表性的上下层含水样",
+    "BAD_GRADE_SAMPLE": "分级样颜色或杂质测值无效",
+    "GRADE_CONFLICT": "同批颜色证据冲突",
+    "MISSING_GRADE": "缺少分级样",
+    "BAD_TARGET": "配载目标、色级或载量无效",
+    "TARGET_CONFLICT": "同一装车目标重复",
+    "GRADE_LIMIT": "余料色级不符",
+    "IMPURITY_LIMIT": "杂质预算不足",
+    "NO_STOCK": "符合条件的干料不足",
+}

@@ -1,0 +1,425 @@
+{
+  "batch": "BL-1120-18",
+  "tickets": [
+    {
+      "ticket": "01001",
+      "lot": "L01",
+      "gross": "530",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "01002",
+      "lot": "L01",
+      "gross": "540",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "01003",
+      "lot": "L01",
+      "gross": "550",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "02001",
+      "lot": "L02",
+      "gross": "535",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "02002",
+      "lot": "L02",
+      "gross": "545",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "02003",
+      "lot": "L02",
+      "gross": "555",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "03001",
+      "lot": "L03",
+      "gross": "540",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "03002",
+      "lot": "L03",
+      "gross": "550",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "03003",
+      "lot": "L03",
+      "gross": "560",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "04001",
+      "lot": "L04",
+      "gross": "545",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "04002",
+      "lot": "L04",
+      "gross": "555",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "04003",
+      "lot": "L04",
+      "gross": "565",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "05001",
+      "lot": "L05",
+      "gross": "550",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "05002",
+      "lot": "L05",
+      "gross": "560",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "05003",
+      "lot": "L05",
+      "gross": "570",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "06001",
+      "lot": "L06",
+      "gross": "555",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "06002",
+      "lot": "L06",
+      "gross": "565",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "06003",
+      "lot": "L06",
+      "gross": "575",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "07001",
+      "lot": "L07",
+      "gross": "560",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "07002",
+      "lot": "L07",
+      "gross": "570",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "07003",
+      "lot": "L07",
+      "gross": "580",
+      "tare": "215",
+      "unit": "kg"
+    },
+    {
+      "ticket": "08001",
+      "lot": "L08",
+      "gross": "565",
+      "tare": "205",
+      "unit": "kg"
+    },
+    {
+      "ticket": "08002",
+      "lot": "L08",
+      "gross": "575",
+      "tare": "210",
+      "unit": "kg"
+    },
+    {
+      "ticket": "08003",
+      "lot": "L08",
+      "gross": "585",
+      "tare": "215",
+      "unit": "kg"
+    }
+  ],
+  "moisture": [
+    {
+      "lot": "L01",
+      "sample": "L01-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L01",
+      "sample": "L01-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L02",
+      "sample": "L02-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L02",
+      "sample": "L02-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L03",
+      "sample": "L03-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L03",
+      "sample": "L03-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L04",
+      "sample": "L04-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L04",
+      "sample": "L04-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L05",
+      "sample": "L05-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L05",
+      "sample": "L05-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L06",
+      "sample": "L06-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L06",
+      "sample": "L06-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L07",
+      "sample": "L07-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L07",
+      "sample": "L07-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    },
+    {
+      "lot": "L08",
+      "sample": "L08-上层",
+      "position": "上层",
+      "mass": 100,
+      "mass_unit": "g",
+      "water": "4",
+      "unit": "%"
+    },
+    {
+      "lot": "L08",
+      "sample": "L08-下层",
+      "position": "下层",
+      "mass": 300,
+      "mass_unit": "g",
+      "water": "8",
+      "unit": "%"
+    }
+  ],
+  "grades": [
+    {
+      "lot": "L01",
+      "color": "白",
+      "offcolor": "1.5",
+      "impurity": "0.35",
+      "unit": "%"
+    },
+    {
+      "lot": "L02",
+      "color": "白料",
+      "offcolor": "2.0",
+      "impurity": "0.65",
+      "unit": "%"
+    },
+    {
+      "lot": "L03",
+      "color": "透明",
+      "offcolor": "2.9",
+      "impurity": "1.8",
+      "unit": "%"
+    },
+    {
+      "lot": "L04",
+      "color": "绿",
+      "offcolor": "1.8",
+      "impurity": "0.60",
+      "unit": "%"
+    },
+    {
+      "lot": "L05",
+      "color": "绿料",
+      "offcolor": "4.1",
+      "impurity": "1.7",
+      "unit": "%"
+    },
+    {
+      "lot": "L06",
+      "color": "棕料",
+      "offcolor": "2.2",
+      "impurity": "1.3",
+      "unit": "%"
+    },
+    {
+      "lot": "L07",
+      "color": "棕",
+      "offcolor": "3.8",
+      "impurity": "1.5",
+      "unit": "%"
+    },
+    {
+      "lot": "L08",
+      "color": "白",
+      "offcolor": "2.6",
+      "impurity": "0.55",
+      "unit": "%"
+    }
+  ],
+  "targets": [
+    {
+      "target": "车 01｜清白料",
+      "colors": [
+        "白料"
+      ],
+      "grades": [
+        "A",
+        "B"
+      ],
+      "mass": 1700,
+      "unit": "kg",
+      "max_impurity": "0.95",
+      "impurity_unit": "%",
+      "priority": 1
+    },
+    {
+      "target": "车 02｜有色料",
+      "colors": [
+        "绿料",
+        "棕料"
+      ],
+      "grades": [
+        "A",
+        "B"
+      ],
+      "mass": 1300,
+      "unit": "kg",
+      "max_impurity": "1.4",
+      "impurity_unit": "%",
+      "priority": 2
+    },
+    {
+      "target": "车 03｜清白料",
+      "colors": [
+        "白料"
+      ],
+      "grades": [
+        "A",
+        "B"
+      ],
+      "mass": 300,
+      "unit": "kg",
+      "max_impurity": "1.8",
+      "impurity_unit": "%",
+      "priority": 3
+    }
+  ]
+}
