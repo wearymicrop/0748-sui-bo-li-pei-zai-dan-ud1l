@@ -15,4 +15,12 @@ LABELS = {
     "GRADE_LIMIT": "余料色级不符",
     "IMPURITY_LIMIT": "杂质预算不足",
     "NO_STOCK": "符合条件的干料不足",
+    "BAD_CONTRACT": "结算合同字段或金额无效",
+    "SETTLEMENT_NOT_FOUND": "未找到批次结算单",
+    "CONTRACT_MISSING": "来源缺少结算合同，无法计价",
+    "CONFIRM_BLOCKED": "存在磅单冲突或隔离来源，应付被阻断",
+    "CONFIRM_INCOMPLETE": "证据未齐，仅可暂估不可确认放款",
+    "ALREADY_CONFIRMED": "该批次已确认，重复确认不生成新单",
+    "REVISION_CONFLICT": "结算单已被更新，请基于最新版本重试",
+    "REVISION_UNCHANGED": "证据未变化，沿用当前结算版本",
 }

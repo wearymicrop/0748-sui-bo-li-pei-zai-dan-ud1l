@@ -190,6 +190,15 @@ th { text-align: start; position: sticky; top: 0; background: var(--chalk); colo
 td.num { text-align: end; }
 .empty { color: var(--dim); }
 #closure { background-color: #f3e8c9; }
+#settlement { background-color: #f6f0dd; }
+#settle-form { display: flex; flex-wrap: wrap; gap: 7px; align-items: baseline; margin-block-start: 12px; }
+#settle-form button { background: #ead59a; border-color: #846625; }
+#settle-operator { width: 130px; }
+#settle-receipt { color: var(--measured); overflow-wrap: anywhere; }
+#settle-seal { font-size: 12px; color: var(--measured); }
+#settle-seal.warning { color: var(--warning); }
+#settle-kpis .numbers { grid-template-columns: repeat(5,minmax(0,1fr)); }
+#settle-revisions { margin-block: 10px; }
 #closure form, #actions { display: flex; flex-wrap: wrap; gap: 7px; align-items: baseline; }
 #closure input { width: 136px; margin-inline-start: 4px; }
 #closure button { background: #ead59a; border-color: #846625; }

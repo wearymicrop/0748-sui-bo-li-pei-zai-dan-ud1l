@@ -15,6 +15,7 @@ from app.modules.m4_drymass.handler import router as drymass
 from app.modules.m5_loading.handler import router as loading
 from app.modules.m6_reconcile.handler import router as reconcile
 from app.modules.m7_archive.handler import router as archive
+from app.modules.m8_settlement.handler import router as settlement
 
 
 def create_app(db_path=None):
@@ -40,6 +41,7 @@ def create_app(db_path=None):
         loading,
         reconcile,
         archive,
+        settlement,
     ):
         api.include_router(router)
 

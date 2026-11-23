@@ -14,11 +14,22 @@ const reasons = {
   IMPURITY_LIMIT: "杂质预算不足",
   GRADE_LIMIT: "余料色级不符",
   NO_STOCK: "符合条件的干料不足",
+  TICKET_CONFLICT: "磅单冲突",
+  NEGATIVE_NET: "净重无效",
+  BAD_TICKET: "磅单无效",
+};
+const settleStatus = {
+  READY: ["可结算", ""],
+  PROVISIONAL: ["可暂估", "warning"],
+  BLOCKED: ["暂扣", "warning"],
+  NO_CONTRACT: ["缺合同", "warning"],
 };
 let run,
   revision = 0,
   source = "dirty",
-  signed;
+  signed,
+  statement;
+const moneyText = (value) => (value === null || value === undefined ? "—" : `¥${value}`);
 function item(tag, text, className) {
   const node = document.createElement(tag);
   if (text !== undefined) node.textContent = text;
@@ -94,7 +105,9 @@ async function refresh(id) {
     field("actions").hidden = true;
     field("receipt").textContent = "";
     signed = undefined;
+    statement = undefined;
     overview();
+    settlementPreview(id);
     confirm.disabled = false;
   } catch (error) {
     if (stamp === revision) field("balance").textContent = error.message;
@@ -307,6 +320,125 @@ field("verify").onclick = async () => {
       `复算一致 · ${record.manifest.digest.slice(0, 12)}`;
   } catch (error) {
     field("receipt").textContent = error.message;
+  }
+};
+async function settlementPreview(id) {
+  field("settle-seal").textContent = "折算中";
+  try {
+    const doc = await read(`/api/settlements/preview/${encodeURIComponent(id)}`);
+    renderSettlement(doc, null);
+  } catch (error) {
+    field("settle-seal").textContent = error.message;
+  }
+}
+function renderSettlement(doc, record) {
+  statement = record;
+  const [label, tone] = settleStatus[doc.status] ?? [doc.status, "warning"];
+  const seal = field("settle-seal");
+  seal.textContent = record
+    ? `${label} · v${record.version}${record.confirmed ? " · 已确认" : ""}`
+    : `${label} · 预览`;
+  seal.className = tone;
+  const t = doc.totals;
+  const kpis = [
+    ["可支付（应付）", moneyText(t.payable_amount)],
+    ["当天可暂估", moneyText(t.provisional_amount)],
+    ["暂扣金额", moneyText(t.withheld_amount)],
+    ["质量扣减", moneyText(t.quality_deduction)],
+    ["冻结湿重 kg", t.blocked_wet_g ? formatKg(t.blocked_wet_g) : "—"],
+  ];
+  field("settle-kpis").replaceChildren(
+    stats(kpis.map(([name, value]) => [name, value])),
+  );
+  const rows = doc.lines.map((line) => [
+    line.lot,
+    (settleStatus[line.status]?.[0] ?? line.status) +
+      (line.reasons.length ? `（${line.reasons.map((r) => reasons[r.code] ?? r.message).join("、")}）` : ""),
+    line.grade ?? "—",
+    line.basis === "wet" ? "湿重" : line.basis === "dry" ? "干重" : "—",
+    moneyText(line.gross_amount),
+    moneyText(line.quality_deduction),
+    moneyText(line.provisional_amount),
+    moneyText(line.payable_amount),
+  ]);
+  field("settle-lines").replaceChildren(
+    ledger(
+      ["批料", "裁决 / 原因", "色级", "口径", "毛额", "质量扣减", "可暂估", "可支付"],
+      rows,
+    ),
+  );
+  renderRevisions(record);
+  field("settle-receipt").textContent = record?.confirmed
+    ? `已确认放款 ${moneyText(record.confirmed.payable_amount)} · ${record.confirmed.operator}`
+    : "";
+}
+function renderRevisions(record) {
+  const box = field("settle-revisions");
+  if (!record) {
+    box.replaceChildren(item("p", "登记后在此查看新旧版本对比", "empty"));
+    return;
+  }
+  const items = [
+    [
+      `v${record.version}（当前）`,
+      record.current.status,
+      record.revisions.at(-1).source,
+      record.current.totals.payable_amount,
+    ],
+    ...record.history.map((old) => [
+      `v${old.version}（旧版）`,
+      old.status,
+      old.source,
+      "—",
+    ]),
+  ];
+  const changeNote = record.history.length
+    ? item(
+        "p",
+        `旧版保留 ${record.history.length} 个；最新变化批料：` +
+          record.history.at(-1).diff.map((d) => d.lot).join("、"),
+        "empty",
+      )
+    : item("p", "首次登记，暂无旧版", "empty");
+  box.replaceChildren(
+    changeNote,
+    ledger(["版本", "状态", "来源", "应付"], items),
+  );
+}
+field("settle-form").onsubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const record = await read("/api/settlements", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ source }),
+    });
+    const outcome = { created: "已登记", reused: "证据未变，沿用现版", revised: "新证据已升版", confirmed: "批次已确认，不再改写" }[record.outcome];
+    field("settle-receipt").textContent = outcome;
+    renderSettlement(record.current, record);
+  } catch (error) {
+    field("settle-receipt").textContent = error.message;
+  }
+};
+field("settle-confirm").onclick = async () => {
+  if (!statement) {
+    field("settle-receipt").textContent = "请先登记暂估";
+    return;
+  }
+  try {
+    const record = await read(
+      `/api/settlements/${encodeURIComponent(statement.batch)}/confirm`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ operator: field("settle-operator").value }),
+      },
+    );
+    field("settle-receipt").textContent =
+      record.outcome === "already" ? "该批次已确认，沿用旧版" : "正式确认成功，进入应付";
+    renderSettlement(record.current, record);
+  } catch (error) {
+    field("settle-receipt").textContent = `确认失败，旧版保留：${error.message}`;
   }
 };
 refresh(source);

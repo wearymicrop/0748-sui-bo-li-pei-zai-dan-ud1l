@@ -421,5 +421,15 @@
       "impurity_unit": "%",
       "priority": 3
     }
-  ]
+  ],
+  "contract": {
+    "currency": "CNY",
+    "wet_floor_price": "0.42",
+    "grade_prices": {
+      "A": "0.88",
+      "B": "0.72",
+      "C": "0.55"
+    },
+    "provisional_reserve_rate": "0.2"
+  }
 }
